@@ -2,6 +2,42 @@ import React from 'react';
 import { Fader } from './Fader';
 import { useHardwareStore } from '../store/useHardwareStore';
 
+const AnimatedCost: React.FC<{ targetCost: number }> = ({ targetCost }) => {
+  const [displayCost, setDisplayCost] = React.useState(targetCost);
+  const [isAnimating, setIsAnimating] = React.useState(false);
+  const costRef = React.useRef({ value: targetCost });
+  const timeoutRef = React.useRef<any>(null);
+
+  React.useEffect(() => {
+    setIsAnimating(true);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    
+    anime({
+      targets: costRef.current,
+      value: targetCost,
+      duration: 800,
+      easing: 'easeOutExpo',
+      update: () => setDisplayCost(costRef.current.value)
+    });
+
+    timeoutRef.current = setTimeout(() => {
+      setIsAnimating(false);
+    }, 800);
+  }, [targetCost]);
+
+  const formattedCost = displayCost > 1000000 
+    ? (displayCost/1000000).toFixed(1) + 'M' 
+    : displayCost > 1000 
+      ? (displayCost/1000).toFixed(1) + 'k' 
+      : displayCost.toFixed(0);
+
+  return (
+    <div className={`cost-display ${isAnimating ? 'cost-animating' : ''}`}>
+      ${formattedCost}
+    </div>
+  );
+};
+
 export const ConstraintPanel: React.FC = () => {
   const vram = useHardwareStore(state => state.vram);
   const ram = useHardwareStore(state => state.ram);
@@ -54,9 +90,7 @@ export const ConstraintPanel: React.FC = () => {
           maxWidth: '300px'
         }}>
           <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '1px' }}>Estimated System Cost</div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#22c55e', margin: '4px 0 12px 0' }}>
-            ${cost > 1000000 ? (cost/1000000).toFixed(1) + 'M' : cost > 1000 ? (cost/1000).toFixed(1) + 'k' : cost.toFixed(0)}
-          </div>
+          <AnimatedCost targetCost={cost} />
           <div style={{ fontSize: '0.75rem', color: 'var(--trim)', marginBottom: '4px' }}>Power Draw: <span style={{color: '#fff'}}>{facts.powerDraw} kW</span></div>
           <div style={{ fontSize: '0.75rem', color: 'var(--trim)', marginBottom: '4px' }}>Form Factor: <span style={{color: '#fff'}}>{facts.formFactor}</span></div>
           <div style={{ fontSize: '0.75rem', color: 'var(--trim)' }}>Cooling: <span style={{color: '#fff'}}>{facts.cooling}</span></div>
