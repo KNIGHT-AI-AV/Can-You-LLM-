@@ -144,6 +144,14 @@ body {
   box-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 
+.fader-fill.flash-red {
+  background: #ff0000 !important;
+  box-shadow: 0 0 30px #ff0000, inset 0 0 10px #ff0000 !important;
+  filter: brightness(1.5) !important;
+  transition: all 0.1s ease !important;
+  animation: none !important;
+}
+
 .fader-knob {
   position: absolute; top: 50%; width: 40px; height: 40px; /* Increased knob hitbox */
   background: transparent;
