@@ -92,9 +92,8 @@ export const ParticleBackground: React.FC = () => {
     let animationFrameId: number;
 
     const render = () => {
-      // Clear with motion blur trailing effect (black with slight opacity)
-      ctx.fillStyle = 'rgba(10, 0, 0, 0.3)';
-      ctx.fillRect(0, 0, width, height);
+      // Clear completely to prevent milky grey smudging
+      ctx.clearRect(0, 0, width, height);
 
       for (let i = 0; i < particles.length; i++) {
         particles[i].update(width, height, mouseRef.current.x, mouseRef.current.y);
