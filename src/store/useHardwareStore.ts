@@ -72,7 +72,11 @@ export const useHardwareStore = create<HardwareState>((set) => ({
 
     return {
       selectedModel: model,
-      vram: Math.max(state.vram, minVram),
+      vram: minVram,
+      ram: Math.ceil(minVram * 1.5),
+      bandwidth: Math.ceil(minVram * 15),
+      storage: Math.ceil(minVram * 1.2),
+      showAllModels: false
     };
   }),
 
