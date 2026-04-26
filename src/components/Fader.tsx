@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import anime from 'animejs';
+import * as anime from 'animejs';
 import { useHardwareStore } from '../store/useHardwareStore';
 import { linearToLog, logToLinear } from '../utils/math';
 

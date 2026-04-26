@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import anime from 'animejs';
+import * as anime from 'animejs';
 
 export const CustomCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number>(0);
   const mouse = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const pos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
 
