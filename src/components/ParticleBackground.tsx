@@ -110,6 +110,16 @@ export const ParticleBackground: React.FC = () => {
       height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
+
+      // Dynamically scale star count to maintain density
+      const targetCount = Math.floor((width * height) / 10000);
+      if (particles.length < targetCount) {
+        for (let i = particles.length; i < targetCount; i++) {
+          particles.push(new Particle(width, height));
+        }
+      } else if (particles.length > targetCount) {
+        particles.splice(targetCount);
+      }
     };
 
     const handleMouseMove = (e: MouseEvent) => {
