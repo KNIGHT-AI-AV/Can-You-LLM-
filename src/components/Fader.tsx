@@ -13,6 +13,37 @@ interface FaderProps {
   isLogarithmic?: boolean;
 }
 
+const playFeltedNo = () => {
+  const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+  if (!AudioContext) return;
+  const ctx = new AudioContext();
+  
+  const filter = ctx.createBiquadFilter();
+  filter.type = 'lowpass';
+  filter.frequency.value = 300;
+  filter.connect(ctx.destination);
+
+  const gain = ctx.createGain();
+  gain.gain.setValueAtTime(0, ctx.currentTime);
+  gain.gain.linearRampToValueAtTime(0.5, ctx.currentTime + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+  gain.gain.setValueAtTime(0, ctx.currentTime + 0.12);
+  gain.gain.linearRampToValueAtTime(0.4, ctx.currentTime + 0.14);
+  gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+  gain.connect(filter);
+
+  const osc = ctx.createOscillator();
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime(150, ctx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.1);
+  osc.frequency.setValueAtTime(120, ctx.currentTime + 0.12);
+  osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.25);
+  
+  osc.connect(gain);
+  osc.start(ctx.currentTime);
+  osc.stop(ctx.currentTime + 0.25);
+};
+
 export const Fader: React.FC<FaderProps> = ({ label, storeKey, min, max, unit, isLogarithmic = true }) => {
   const value = useHardwareStore((state) => state[storeKey]);
   const setValue = useHardwareStore((state) => state.setHardwareValue);
@@ -25,6 +56,7 @@ export const Fader: React.FC<FaderProps> = ({ label, storeKey, min, max, unit, i
   const [isDragging, setIsDragging] = useState(false);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const lastPercentage = useRef(0);
+  const hasHitBoundary = useRef(false);
 
   const getPercentage = (val: number) => {
     if (isLogarithmic) {
@@ -68,11 +100,37 @@ export const Fader: React.FC<FaderProps> = ({ label, storeKey, min, max, unit, i
     setValue(storeKey, newValue);
     
     const actualNewStoreValue = useHardwareStore.getState()[storeKey];
-    if (newValue < actualNewStoreValue && actualNewStoreValue === currentStoreValue) {
-      if (trackRef.current) {
-        anime({ targets: trackRef.current, borderColor: ['#ff0000', 'rgba(255,255,255,0.1)'], duration: 300, easing: 'easeOutExpo' });
+    
+    if (newValue < actualNewStoreValue) {
+      if (!hasHitBoundary.current && actualNewStoreValue === currentStoreValue) {
+        hasHitBoundary.current = true;
+        playFeltedNo();
+        if (knobRef.current) {
+          // Shake and red glow
+          anime({
+            targets: knobRef.current,
+            translateX: ['-50%', '-60%', '-40%', '-55%', '-45%', '-50%'],
+            duration: 400,
+            easing: 'easeInOutSine'
+          });
+          const arrow = knobRef.current.querySelector('svg');
+          if (arrow) {
+            anime({
+              targets: arrow,
+              fill: ['#ff0000', '#ffffff'],
+              filter: ['drop-shadow(0 0 15px red)', 'drop-shadow(0 0 8px rgba(255,255,255,0.8))'],
+              duration: 500,
+              easing: 'easeOutExpo'
+            });
+          }
+        }
+        if (trackRef.current) {
+          anime({ targets: trackRef.current, borderColor: ['#ff0000', 'rgba(255,255,255,0.1)'], duration: 300, easing: 'easeOutExpo' });
+        }
       }
       percentage = getPercentage(actualNewStoreValue);
+    } else {
+      hasHitBoundary.current = false;
     }
 
     if (knobRef.current && fillRef.current) {
