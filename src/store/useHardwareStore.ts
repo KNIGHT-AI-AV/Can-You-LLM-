@@ -28,6 +28,7 @@ interface HardwareState {
   selectModel: (model: Model | null) => void;
   toggleShowAllModels: () => void;
   setSortBy: (sort: 'intelligence' | 'context' | 'cost') => void;
+  resetHardware: () => void;
 }
 
 export const useHardwareStore = create<HardwareState>((set) => ({
@@ -87,5 +88,15 @@ export const useHardwareStore = create<HardwareState>((set) => ({
     return { showAllModels: !state.showAllModels };
   }),
 
-  setSortBy: (sort) => set({ sortBy: sort })
+  setSortBy: (sort) => set({ sortBy: sort }),
+
+  resetHardware: () => set({
+    vram: 24,
+    ram: 64,
+    bandwidth: 100,
+    storage: 512,
+    selectedModel: null,
+    showAllModels: true,
+    sortBy: 'intelligence'
+  })
 }));

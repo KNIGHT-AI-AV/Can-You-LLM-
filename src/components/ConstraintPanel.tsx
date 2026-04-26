@@ -68,6 +68,29 @@ export const ConstraintPanel: React.FC = () => {
         <Fader label="Host RAM" storeKey="ram" min={8} max={250000} unit="GB" />
         <Fader label="Memory Bandwidth" storeKey="bandwidth" min={50} max={500000} unit="GB/s" />
         <Fader label="Storage Capacity" storeKey="storage" min={10} max={1000000} unit="GB" />
+        
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '8px' }}>
+          <button 
+            onClick={() => useHardwareStore.getState().resetHardware()}
+            style={{
+              background: 'transparent',
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: 'var(--text-muted)',
+              padding: '6px 16px',
+              borderRadius: '6px',
+              cursor: 'none',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'var(--trim)'; e.currentTarget.style.background = 'rgba(212, 175, 55, 0.1)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.background = 'transparent'; }}
+          >
+            Reset Faders
+          </button>
+        </div>
       </div>
     </div>
   );
