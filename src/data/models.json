@@ -1,22 +1,142 @@
 [
   {
+    "id": "kimi-k2-6",
+    "name": "Kimi K2.6",
+    "creator": "Kimi",
+    "context_window": 256000,
+    "intelligence_index": 54,
+    "parameters_billion": 200,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
     "id": "deepseek-v4-pro-max",
     "name": "DeepSeek V4 Pro (Max)",
     "creator": "DeepSeek",
     "context_window": 1000000,
     "intelligence_index": 52,
     "parameters_billion": 671,
-    "layers": 61,
-    "hidden_dimension": 7168
+    "layers": 80,
+    "hidden_dimension": 8192
   },
   {
-    "id": "qwen3.6-27b",
+    "id": "glm-5-1",
+    "name": "GLM-5.1",
+    "creator": "Z AI",
+    "context_window": 200000,
+    "intelligence_index": 51,
+    "parameters_billion": 130,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "deepseek-v4-pro-high",
+    "name": "DeepSeek V4 Pro (High)",
+    "creator": "DeepSeek",
+    "context_window": 1000000,
+    "intelligence_index": 50,
+    "parameters_billion": 671,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "glm-5",
+    "name": "GLM-5",
+    "creator": "Z AI",
+    "context_window": 200000,
+    "intelligence_index": 50,
+    "parameters_billion": 130,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "minimax-m2-7",
+    "name": "MiniMax-M2.7",
+    "creator": "MiniMax",
+    "context_window": 205000,
+    "intelligence_index": 50,
+    "parameters_billion": 100,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "deepseek-v4-flash-max",
+    "name": "DeepSeek V4 Flash (Max)",
+    "creator": "DeepSeek",
+    "context_window": 1000000,
+    "intelligence_index": 47,
+    "parameters_billion": 37,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "qwen3-6-27b",
     "name": "Qwen3.6 27B",
     "creator": "Alibaba",
     "context_window": 262000,
     "intelligence_index": 46,
     "parameters_billion": 27,
     "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "qwen3-5-397b-a17b",
+    "name": "Qwen3.5 397B A17B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 45,
+    "parameters_billion": 397,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "deepseek-v4-flash-high",
+    "name": "DeepSeek V4 Flash (High)",
+    "creator": "DeepSeek",
+    "context_window": 1000000,
+    "intelligence_index": 45,
+    "parameters_billion": 37,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "qwen3-6-35b-a3b",
+    "name": "Qwen3.6 35B A3B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 43,
+    "parameters_billion": 35,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "deepseek-v3-2",
+    "name": "DeepSeek V3.2",
+    "creator": "DeepSeek",
+    "context_window": 128000,
+    "intelligence_index": 42,
+    "parameters_billion": 671,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "qwen3-5-122b-a10b",
+    "name": "Qwen3.5 122B A10B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 42,
+    "parameters_billion": 122,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "mimo-v2-flash-feb-2026",
+    "name": "MiMo-V2-Flash (Feb 2026)",
+    "creator": "Xiaomi",
+    "context_window": 256000,
+    "intelligence_index": 41,
+    "parameters_billion": 35,
+    "layers": 60,
     "hidden_dimension": 5120
   },
   {
@@ -26,8 +146,208 @@
     "context_window": 256000,
     "intelligence_index": 39,
     "parameters_billion": 31,
-    "layers": 42,
+    "layers": 60,
     "hidden_dimension": 5120
+  },
+  {
+    "id": "kimi-k2-5",
+    "name": "Kimi K2.5",
+    "creator": "Kimi",
+    "context_window": 256000,
+    "intelligence_index": 37,
+    "parameters_billion": 200,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "nvidia-nemotron-3-super",
+    "name": "NVIDIA Nemotron 3 Super",
+    "creator": "NVIDIA",
+    "context_window": 1000000,
+    "intelligence_index": 36,
+    "parameters_billion": 340,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "gpt-oss-120b-high",
+    "name": "gpt-oss-120B (high)",
+    "creator": "OpenAI",
+    "context_window": 131000,
+    "intelligence_index": 33,
+    "parameters_billion": 120,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "qwen3-5-9b",
+    "name": "Qwen3.5 9B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 32,
+    "parameters_billion": 9,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "k-exaone",
+    "name": "K-EXAONE",
+    "creator": "LG AI Research",
+    "context_window": 256000,
+    "intelligence_index": 32,
+    "parameters_billion": 32,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "trinity-large-thinking",
+    "name": "Trinity Large Thinking",
+    "creator": "Arcee AI",
+    "context_window": 512000,
+    "intelligence_index": 32,
+    "parameters_billion": 100,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "gemma-4-26b-a4b",
+    "name": "Gemma 4 26B A4B",
+    "creator": "Google",
+    "context_window": 256000,
+    "intelligence_index": 31,
+    "parameters_billion": 26,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "qwen3-5-35b-a3b",
+    "name": "Qwen3.5 35B A3B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 31,
+    "parameters_billion": 35,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "mimo-v2-flash",
+    "name": "MiMo-V2-Flash",
+    "creator": "Xiaomi",
+    "context_window": 256000,
+    "intelligence_index": 30,
+    "parameters_billion": 35,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "deepseek-v3-2-speciale",
+    "name": "DeepSeek V3.2 Speciale",
+    "creator": "DeepSeek",
+    "context_window": 128000,
+    "intelligence_index": 29,
+    "parameters_billion": 671,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "nemotron-cascade-2-30b-a3b",
+    "name": "Nemotron Cascade 2 30B A3B",
+    "creator": "NVIDIA",
+    "context_window": 262000,
+    "intelligence_index": 28,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "qwen3-coder-next",
+    "name": "Qwen3 Coder Next",
+    "creator": "Alibaba",
+    "context_window": 256000,
+    "intelligence_index": 28,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "mistral-small-4",
+    "name": "Mistral Small 4",
+    "creator": "Mistral",
+    "context_window": 256000,
+    "intelligence_index": 28,
+    "parameters_billion": 22,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "qwen3-5-4b",
+    "name": "Qwen3.5 4B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 27,
+    "parameters_billion": 4,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "deepseek-r1-0528",
+    "name": "DeepSeek R1 0528",
+    "creator": "DeepSeek",
+    "context_window": 128000,
+    "intelligence_index": 27,
+    "parameters_billion": 671,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "qwen3-next-80b-a3b",
+    "name": "Qwen3 Next 80B A3B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 27,
+    "parameters_billion": 80,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "gpt-oss-20b-high",
+    "name": "gpt-oss-20B (high)",
+    "creator": "OpenAI",
+    "context_window": 131000,
+    "intelligence_index": 24,
+    "parameters_billion": 20,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "gpt-oss-120b-low",
+    "name": "gpt-oss-120B (low)",
+    "creator": "OpenAI",
+    "context_window": 131000,
+    "intelligence_index": 24,
+    "parameters_billion": 120,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "nvidia-nemotron-3-nano",
+    "name": "NVIDIA Nemotron 3 Nano",
+    "creator": "NVIDIA",
+    "context_window": 1000000,
+    "intelligence_index": 24,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "longcat-flash-lite",
+    "name": "LongCat Flash Lite",
+    "creator": "LongCat",
+    "context_window": 256000,
+    "intelligence_index": 24,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
   },
   {
     "id": "mistral-large-3",
@@ -40,7 +360,307 @@
     "hidden_dimension": 8192
   },
   {
-    "id": "llama-3.3-70b",
+    "id": "ring-1t",
+    "name": "Ring-1T",
+    "creator": "InclusionAI",
+    "context_window": 128000,
+    "intelligence_index": 23,
+    "parameters_billion": 1000,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "intellect-3",
+    "name": "INTELLECT-3",
+    "creator": "Prime Intellect",
+    "context_window": 131000,
+    "intelligence_index": 22,
+    "parameters_billion": 35,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "devstral-2",
+    "name": "Devstral 2",
+    "creator": "Mistral",
+    "context_window": 256000,
+    "intelligence_index": 22,
+    "parameters_billion": 22,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "solar-open-100b",
+    "name": "Solar Open 100B",
+    "creator": "Upstage",
+    "context_window": 128000,
+    "intelligence_index": 22,
+    "parameters_billion": 100,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "gpt-oss-20b-low",
+    "name": "gpt-oss-20B (low)",
+    "creator": "OpenAI",
+    "context_window": 131000,
+    "intelligence_index": 21,
+    "parameters_billion": 20,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "devstral-small-2",
+    "name": "Devstral Small 2",
+    "creator": "Mistral",
+    "context_window": 256000,
+    "intelligence_index": 19,
+    "parameters_billion": 22,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "ling-1t",
+    "name": "Ling-1T",
+    "creator": "InclusionAI",
+    "context_window": 128000,
+    "intelligence_index": 19,
+    "parameters_billion": 1000,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "gemma-4-e4b",
+    "name": "Gemma 4 E4B",
+    "creator": "Google",
+    "context_window": 128000,
+    "intelligence_index": 19,
+    "parameters_billion": 4,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "llama-nemotron-super-49b-v1-5",
+    "name": "Llama Nemotron Super 49B v1.5",
+    "creator": "NVIDIA",
+    "context_window": 128000,
+    "intelligence_index": 19,
+    "parameters_billion": 49,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "llama-3-3-nemotron-super-49b",
+    "name": "Llama 3.3 Nemotron Super 49B",
+    "creator": "NVIDIA",
+    "context_window": 128000,
+    "intelligence_index": 18,
+    "parameters_billion": 49,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "llama-4-maverick",
+    "name": "Llama 4 Maverick",
+    "creator": "Meta",
+    "context_window": 1000000,
+    "intelligence_index": 18,
+    "parameters_billion": 104,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "magistral-small-1-2",
+    "name": "Magistral Small 1.2",
+    "creator": "Mistral",
+    "context_window": 128000,
+    "intelligence_index": 18,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "sarvam-105b-high",
+    "name": "Sarvam 105B (high)",
+    "creator": "Sarvam",
+    "context_window": 128000,
+    "intelligence_index": 18,
+    "parameters_billion": 105,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "llama-3-1-405b",
+    "name": "Llama 3.1 405B",
+    "creator": "Meta",
+    "context_window": 128000,
+    "intelligence_index": 17,
+    "parameters_billion": 405,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "exaone-4-0-32b",
+    "name": "EXAONE 4.0 32B",
+    "creator": "LG AI Research",
+    "context_window": 131000,
+    "intelligence_index": 17,
+    "parameters_billion": 32,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "qwen3-5-2b",
+    "name": "Qwen3.5 2B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 16,
+    "parameters_billion": 2,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "nanbeige4-1-3b",
+    "name": "Nanbeige4.1-3B",
+    "creator": "Nanbeige",
+    "context_window": 256000,
+    "intelligence_index": 16,
+    "parameters_billion": 3,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "ministral-3-14b",
+    "name": "Ministral 3 14B",
+    "creator": "Mistral",
+    "context_window": 256000,
+    "intelligence_index": 16,
+    "parameters_billion": 14,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "deepseek-r1-distill-llama-70b",
+    "name": "DeepSeek R1 Distill Llama 70B",
+    "creator": "DeepSeek",
+    "context_window": 128000,
+    "intelligence_index": 16,
+    "parameters_billion": 70,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "falcon-h1r-7b",
+    "name": "Falcon-H1R-7B",
+    "creator": "TII UAE",
+    "context_window": 256000,
+    "intelligence_index": 16,
+    "parameters_billion": 7,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "ling-flash-2-0",
+    "name": "Ling-flash-2.0",
+    "creator": "InclusionAI",
+    "context_window": 128000,
+    "intelligence_index": 16,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "qwen3-omni-30b-a3b",
+    "name": "Qwen3 Omni 30B A3B",
+    "creator": "Alibaba",
+    "context_window": 65,
+    "intelligence_index": 16,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "step3-vl-10b",
+    "name": "Step3 VL 10B",
+    "creator": "StepFun",
+    "context_window": 65,
+    "intelligence_index": 15,
+    "parameters_billion": 10,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "gemma-4-e2b",
+    "name": "Gemma 4 E2B",
+    "creator": "Google",
+    "context_window": 128000,
+    "intelligence_index": 15,
+    "parameters_billion": 2,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "llama-nemotron-ultra",
+    "name": "Llama Nemotron Ultra",
+    "creator": "NVIDIA",
+    "context_window": 128000,
+    "intelligence_index": 15,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "ernie-4-5-300b-a47b",
+    "name": "ERNIE 4.5 300B A47B",
+    "creator": "Baidu",
+    "context_window": 131000,
+    "intelligence_index": 15,
+    "parameters_billion": 300,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "nvidia-nemotron-nano-12b-v2-vl",
+    "name": "NVIDIA Nemotron Nano 12B v2 VL",
+    "creator": "NVIDIA",
+    "context_window": 128000,
+    "intelligence_index": 15,
+    "parameters_billion": 12,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "ministral-3-8b",
+    "name": "Ministral 3 8B",
+    "creator": "Mistral",
+    "context_window": 256000,
+    "intelligence_index": 15,
+    "parameters_billion": 8,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "nvidia-nemotron-nano-9b-v2",
+    "name": "NVIDIA Nemotron Nano 9B V2",
+    "creator": "NVIDIA",
+    "context_window": 131000,
+    "intelligence_index": 15,
+    "parameters_billion": 9,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "nvidia-nemotron-3-nano-4b",
+    "name": "NVIDIA Nemotron 3 Nano 4B",
+    "creator": "NVIDIA",
+    "context_window": 262000,
+    "intelligence_index": 15,
+    "parameters_billion": 4,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "llama-3-3-70b",
     "name": "Llama 3.3 70B",
     "creator": "Meta",
     "context_window": 128000,
@@ -50,6 +670,146 @@
     "hidden_dimension": 8192
   },
   {
+    "id": "llama-3-1-nemotron-nano-4b-v1-1",
+    "name": "Llama 3.1 Nemotron Nano 4B v1.1",
+    "creator": "NVIDIA",
+    "context_window": 128000,
+    "intelligence_index": 14,
+    "parameters_billion": 4,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "kimi-linear-48b-a3b-instruct",
+    "name": "Kimi Linear 48B A3B Instruct",
+    "creator": "Kimi",
+    "context_window": 1000000,
+    "intelligence_index": 14,
+    "parameters_billion": 48,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "ring-flash-2-0",
+    "name": "Ring-flash-2.0",
+    "creator": "InclusionAI",
+    "context_window": 128000,
+    "intelligence_index": 14,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "llama-4-scout",
+    "name": "Llama 4 Scout",
+    "creator": "Meta",
+    "context_window": 10000000,
+    "intelligence_index": 14,
+    "parameters_billion": 14,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "command-a",
+    "name": "Command A",
+    "creator": "Cohere",
+    "context_window": 256000,
+    "intelligence_index": 13,
+    "parameters_billion": 35,
+    "layers": 60,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "llama-3-1-nemotron-70b",
+    "name": "Llama 3.1 Nemotron 70B",
+    "creator": "NVIDIA",
+    "context_window": 128000,
+    "intelligence_index": 13,
+    "parameters_billion": 70,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "sarvam-30b-high",
+    "name": "Sarvam 30B (high)",
+    "creator": "Sarvam",
+    "context_window": 65,
+    "intelligence_index": 12,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "r1-1776",
+    "name": "R1 1776",
+    "creator": "Perplexity",
+    "context_window": 128000,
+    "intelligence_index": 12,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "llama-3-2-90b-vision",
+    "name": "Llama 3.2 90B (Vision)",
+    "creator": "Meta",
+    "context_window": 128000,
+    "intelligence_index": 12,
+    "parameters_billion": 90,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "ministral-3-3b",
+    "name": "Ministral 3 3B",
+    "creator": "Mistral",
+    "context_window": 256000,
+    "intelligence_index": 11,
+    "parameters_billion": 3,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "jamba-1-7-large",
+    "name": "Jamba 1.7 Large",
+    "creator": "AI21 Labs",
+    "context_window": 256000,
+    "intelligence_index": 11,
+    "parameters_billion": 94,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "granite-4-0-h-small",
+    "name": "Granite 4.0 H Small",
+    "creator": "IBM",
+    "context_window": 128000,
+    "intelligence_index": 11,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "qwen3-5-0-8b",
+    "name": "Qwen3.5 0.8B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 11,
+    "parameters_billion": 0.8,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "lfm2-24b-a2b",
+    "name": "LFM2 24B A2B",
+    "creator": "Liquid AI",
+    "context_window": 32,
+    "intelligence_index": 10,
+    "parameters_billion": 24,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
     "id": "phi-4",
     "name": "Phi-4",
     "creator": "Microsoft",
@@ -57,16 +817,226 @@
     "intelligence_index": 10,
     "parameters_billion": 14,
     "layers": 40,
-    "hidden_dimension": 5120
+    "hidden_dimension": 4096
   },
   {
-    "id": "qwen3.5-4b",
-    "name": "Qwen3.5 4B",
-    "creator": "Alibaba",
-    "context_window": 262000,
-    "intelligence_index": 27,
-    "parameters_billion": 4,
+    "id": "phi-4-multimodal",
+    "name": "Phi-4 Multimodal",
+    "creator": "Microsoft",
+    "context_window": 128000,
+    "intelligence_index": 10,
+    "parameters_billion": 14,
     "layers": 40,
-    "hidden_dimension": 2560
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "jamba-reasoning-3b",
+    "name": "Jamba Reasoning 3B",
+    "creator": "AI21 Labs",
+    "context_window": 262000,
+    "intelligence_index": 10,
+    "parameters_billion": 3,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "reka-flash-3",
+    "name": "Reka Flash 3",
+    "creator": "Reka AI",
+    "context_window": 128000,
+    "intelligence_index": 10,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "ling-mini-2-0",
+    "name": "Ling-mini-2.0",
+    "creator": "InclusionAI",
+    "context_window": 131000,
+    "intelligence_index": 9,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "llama-3-2-11b-vision",
+    "name": "Llama 3.2 11B (Vision)",
+    "creator": "Meta",
+    "context_window": 128000,
+    "intelligence_index": 9,
+    "parameters_billion": 11,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "phi-4-mini",
+    "name": "Phi-4 Mini",
+    "creator": "Microsoft",
+    "context_window": 128000,
+    "intelligence_index": 8,
+    "parameters_billion": 14,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "exaone-4-0-1-2b",
+    "name": "Exaone 4.0 1.2B",
+    "creator": "LG AI Research",
+    "context_window": 64000,
+    "intelligence_index": 8,
+    "parameters_billion": 1.2,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "lfm2-5-1-2b-thinking",
+    "name": "LFM2.5-1.2B-Thinking",
+    "creator": "Liquid AI",
+    "context_window": 32000,
+    "intelligence_index": 8,
+    "parameters_billion": 1.2,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "jamba-1-7-mini",
+    "name": "Jamba 1.7 Mini",
+    "creator": "AI21 Labs",
+    "context_window": 258000,
+    "intelligence_index": 8,
+    "parameters_billion": 94,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "lfm2-5-1-2b-instruct",
+    "name": "LFM2.5-1.2B-Instruct",
+    "creator": "Liquid AI",
+    "context_window": 32000,
+    "intelligence_index": 8,
+    "parameters_billion": 1.2,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "lfm2-2-6b",
+    "name": "LFM2 2.6B",
+    "creator": "Liquid AI",
+    "context_window": 32,
+    "intelligence_index": 8,
+    "parameters_billion": 2.6,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "granite-4-0-h-1b",
+    "name": "Granite 4.0 H 1B",
+    "creator": "IBM",
+    "context_window": 128000,
+    "intelligence_index": 8,
+    "parameters_billion": 1,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "gemma-3-270m",
+    "name": "Gemma 3 270M",
+    "creator": "Google",
+    "context_window": 32000,
+    "intelligence_index": 8,
+    "parameters_billion": 0.27,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "apertus-70b-instruct",
+    "name": "Apertus 70B Instruct",
+    "creator": "Swiss AI Initiative",
+    "context_window": 65,
+    "intelligence_index": 8,
+    "parameters_billion": 70,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "granite-4-0-micro",
+    "name": "Granite 4.0 Micro",
+    "creator": "IBM",
+    "context_window": 128000,
+    "intelligence_index": 8,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
+  },
+  {
+    "id": "granite-4-0-1b",
+    "name": "Granite 4.0 1B",
+    "creator": "IBM",
+    "context_window": 128000,
+    "intelligence_index": 7,
+    "parameters_billion": 1,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "lfm2-8b-a1b",
+    "name": "LFM2 8B A1B",
+    "creator": "Liquid AI",
+    "context_window": 32,
+    "intelligence_index": 7,
+    "parameters_billion": 8,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "lfm2-5-vl-1-6b",
+    "name": "LFM2.5-VL-1.6B",
+    "creator": "Liquid AI",
+    "context_window": 32000,
+    "intelligence_index": 6,
+    "parameters_billion": 1.6,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "granite-4-0-350m",
+    "name": "Granite 4.0 350M",
+    "creator": "IBM",
+    "context_window": 32,
+    "intelligence_index": 6,
+    "parameters_billion": 0.35,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "apertus-8b-instruct",
+    "name": "Apertus 8B Instruct",
+    "creator": "Swiss AI Initiative",
+    "context_window": 65,
+    "intelligence_index": 6,
+    "parameters_billion": 8,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "granite-4-0-h-350m",
+    "name": "Granite 4.0 H 350M",
+    "creator": "IBM",
+    "context_window": 32,
+    "intelligence_index": 5,
+    "parameters_billion": 0.35,
+    "layers": 32,
+    "hidden_dimension": 2048
+  },
+  {
+    "id": "tiny-aya-global",
+    "name": "Tiny Aya Global",
+    "creator": "Cohere",
+    "context_window": 8,
+    "intelligence_index": 5,
+    "parameters_billion": 30,
+    "layers": 40,
+    "hidden_dimension": 4096
   }
 ]
