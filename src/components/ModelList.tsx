@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import * as anime from 'animejs';
+// @ts-ignore
+import anime from 'animejs/lib/anime.es.js';
 import { useHardwareStore } from '../store/useHardwareStore';
 import { calculateTotalMemory } from '../utils/math';
 

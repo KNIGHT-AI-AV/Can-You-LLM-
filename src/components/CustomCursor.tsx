@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import * as anime from 'animejs';
+// @ts-ignore
+import anime from 'animejs/lib/anime.es.js';
 
 export const CustomCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
