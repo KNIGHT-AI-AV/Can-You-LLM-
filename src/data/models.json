@@ -1,0 +1,72 @@
+[
+  {
+    "id": "deepseek-v4-pro-max",
+    "name": "DeepSeek V4 Pro (Max)",
+    "creator": "DeepSeek",
+    "context_window": 1000000,
+    "intelligence_index": 52,
+    "parameters_billion": 671,
+    "layers": 61,
+    "hidden_dimension": 7168
+  },
+  {
+    "id": "qwen3.6-27b",
+    "name": "Qwen3.6 27B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 46,
+    "parameters_billion": 27,
+    "layers": 40,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "gemma-4-31b",
+    "name": "Gemma 4 31B",
+    "creator": "Google",
+    "context_window": 256000,
+    "intelligence_index": 39,
+    "parameters_billion": 31,
+    "layers": 42,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "mistral-large-3",
+    "name": "Mistral Large 3",
+    "creator": "Mistral",
+    "context_window": 256000,
+    "intelligence_index": 23,
+    "parameters_billion": 123,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "llama-3.3-70b",
+    "name": "Llama 3.3 70B",
+    "creator": "Meta",
+    "context_window": 128000,
+    "intelligence_index": 14,
+    "parameters_billion": 70,
+    "layers": 80,
+    "hidden_dimension": 8192
+  },
+  {
+    "id": "phi-4",
+    "name": "Phi-4",
+    "creator": "Microsoft",
+    "context_window": 16000,
+    "intelligence_index": 10,
+    "parameters_billion": 14,
+    "layers": 40,
+    "hidden_dimension": 5120
+  },
+  {
+    "id": "qwen3.5-4b",
+    "name": "Qwen3.5 4B",
+    "creator": "Alibaba",
+    "context_window": 262000,
+    "intelligence_index": 27,
+    "parameters_billion": 4,
+    "layers": 40,
+    "hidden_dimension": 2560
+  }
+]
