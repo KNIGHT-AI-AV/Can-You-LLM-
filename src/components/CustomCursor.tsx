@@ -4,7 +4,6 @@ import anime from 'animejs';
 
 export const CustomCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const tailRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [angle, setAngle] = useState(0);
   const [isMoving, setIsMoving] = useState(false);
 
@@ -45,33 +44,6 @@ export const CustomCursor: React.FC = () => {
     };
     animateCursor();
 
-    let tails = tailRefs.current.filter(Boolean);
-    if (tails.length > 0) {
-      const animateTails = () => {
-        let prevX = mouseX;
-        let prevY = mouseY;
-        
-        tails.forEach((tail) => {
-          if (!tail) return;
-          const rect = tail.getBoundingClientRect();
-          const tailX = rect.left + rect.width / 2;
-          const tailY = rect.top + rect.height / 2;
-          
-          const speed = 0.3;
-          const nextX = tailX + (prevX - tailX) * speed;
-          const nextY = tailY + (prevY - tailY) * speed;
-          
-          anime.set(tail, { left: nextX, top: nextY });
-          
-          prevX = tailX;
-          prevY = tailY;
-        });
-        
-        requestAnimationFrame(animateTails);
-      };
-      animateTails();
-    }
-
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
     };
@@ -107,26 +79,6 @@ export const CustomCursor: React.FC = () => {
           <path d={svgPath} strokeLinejoin="round" strokeWidth="2" stroke="transparent"/>
         </svg>
       </div>
-
-      {[...Array(4)].map((_, i) => (
-        <div
-          key={i}
-          ref={el => tailRefs.current[i] = el}
-          className={isMoving ? 'cursor-moving' : ''}
-          style={{
-            position: 'fixed', top: 0, left: 0,
-            width: `${18 - i * 3}px`, height: `${18 - i * 3}px`,
-            pointerEvents: 'none', zIndex: 9998 - i,
-            transform: `translate(-50%, -50%) rotate(${angle}deg)`,
-            opacity: 0.4 - (i * 0.1),
-            mixBlendMode: 'screen'
-          }}
-        >
-          <svg viewBox="0 0 24 24" style={{ width: '100%', height: '100%', fill: isMoving ? '#ff0000' : 'var(--text-main)' }}>
-            <path d={svgPath} strokeLinejoin="round" strokeWidth="2" stroke="transparent"/>
-          </svg>
-        </div>
-      ))}
     </>
   );
 };
