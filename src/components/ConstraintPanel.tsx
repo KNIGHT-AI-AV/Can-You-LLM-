@@ -1,4 +1,6 @@
 import React from 'react';
+// @ts-ignore
+import anime from 'animejs';
 import { Fader } from './Fader';
 import { useHardwareStore } from '../store/useHardwareStore';
 
