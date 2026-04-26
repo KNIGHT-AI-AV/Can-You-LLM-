@@ -39,13 +39,10 @@ export const ModelList: React.FC = () => {
 
     return hasStorage && hasTotalMemory && isUsable;
   }).sort((a, b) => {
-    if (sortBy === 'vram') {
+    if (sortBy === 'cost') {
       const memA = calculateTotalMemory(a.parameters_billion, a.layers, a.hidden_dimension, 8192);
       const memB = calculateTotalMemory(b.parameters_billion, b.layers, b.hidden_dimension, 8192);
       return memB - memA;
-    }
-    if (sortBy === 'parameters') {
-      return b.parameters_billion - a.parameters_billion;
     }
     if (sortBy === 'context') {
       return b.context_window - a.context_window;
@@ -102,7 +99,7 @@ export const ModelList: React.FC = () => {
       </div>
 
       <div style={{ display: 'flex', gap: '6px', marginBottom: '16px', flexWrap: 'wrap' }}>
-        {(['intelligence', 'vram', 'parameters', 'context'] as const).map(type => (
+        {(['intelligence', 'context', 'cost'] as const).map(type => (
           <button
             key={type}
             onClick={() => setSortBy(type)}
@@ -139,8 +136,8 @@ export const ModelList: React.FC = () => {
               <div className="model-title">{model.name}</div>
             </div>
             <div className="model-stats">
-              <span>{model.parameters_billion}B Params</span>
               <span>Int: {model.intelligence_index}</span>
+              <span style={{ color: 'var(--trim)' }}>{Math.round(model.context_window / 1000)}k Context</span>
             </div>
             {selectedModel?.id === model.id && (
               <div style={{ marginTop: '12px', fontSize: '0.85rem', color: '#cbd5e1' }}>

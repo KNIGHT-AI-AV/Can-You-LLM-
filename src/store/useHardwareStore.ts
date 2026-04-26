@@ -22,12 +22,12 @@ interface HardwareState {
   selectedModel: Model | null;
   models: Model[];
   showAllModels: boolean;
-  sortBy: 'intelligence' | 'vram' | 'parameters' | 'context';
+  sortBy: 'intelligence' | 'context' | 'cost';
   
   setHardwareValue: (key: keyof HardwareState, value: number) => void;
   selectModel: (model: Model | null) => void;
   toggleShowAllModels: () => void;
-  setSortBy: (sort: 'intelligence' | 'vram' | 'parameters' | 'context') => void;
+  setSortBy: (sort: 'intelligence' | 'context' | 'cost') => void;
 }
 
 export const useHardwareStore = create<HardwareState>((set) => ({
