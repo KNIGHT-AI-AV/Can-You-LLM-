@@ -19,7 +19,6 @@ interface HardwareState {
   bandwidth: number; // in GB/s
   storage: number; // in GB
   storageSpeed: number; // in MB/s
-  contextLength: number; // in tokens
   selectedModel: Model | null;
   models: Model[];
   

@@ -5,7 +5,7 @@ import { linearToLog, logToLinear } from '../utils/math';
 
 interface FaderProps {
   label: string;
-  storeKey: 'vram' | 'ram' | 'bandwidth' | 'storage' | 'storageSpeed' | 'contextLength';
+  storeKey: 'vram' | 'ram' | 'bandwidth' | 'storage' | 'storageSpeed';
   min: number;
   max: number;
   unit: string;
