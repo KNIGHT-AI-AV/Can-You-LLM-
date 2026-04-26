@@ -14,14 +14,30 @@ export const ModelList: React.FC = () => {
   const setSortBy = useHardwareStore(state => state.setSortBy);
   
   const vram = useHardwareStore(state => state.vram);
+  const ram = useHardwareStore(state => state.ram);
+  const bandwidth = useHardwareStore(state => state.bandwidth);
+  const storage = useHardwareStore(state => state.storage);
 
   const listRef = useRef<HTMLDivElement>(null);
 
   const visibleModels = models.filter(model => {
     if (selectedModel) return true;
     if (showAllModels) return true;
+    
+    // Calculate total VRAM required for pure GPU inference (KV Cache + Weights)
     const requiredMem = calculateTotalMemory(model.parameters_billion, model.layers, model.hidden_dimension, 8192);
-    return requiredMem <= vram;
+    
+    // Physics Constraints:
+    // 1. Storage must physically hold the weights
+    const hasStorage = storage >= requiredMem;
+    // 2. We can offload to System RAM if VRAM is low, but total memory must exceed model size + overhead
+    const hasTotalMemory = (vram + ram) >= (requiredMem * 1.1);
+    // 3. Inference speed constraint: Memory bandwidth must allow at least ~2 tokens/second
+    // Rough physics: Bandwidth (GB/s) / Model Size (GB) = Tokens per Second
+    const tokensPerSecond = bandwidth / requiredMem;
+    const isUsable = tokensPerSecond >= 1.5;
+
+    return hasStorage && hasTotalMemory && isUsable;
   }).sort((a, b) => {
     if (sortBy === 'vram') {
       const memA = calculateTotalMemory(a.parameters_billion, a.layers, a.hidden_dimension, 8192);

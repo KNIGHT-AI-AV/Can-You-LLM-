@@ -50,10 +50,10 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   min-height: 100vh;
-  padding: 40px 24px;
+  padding: 24px;
   gap: 32px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
