@@ -127,6 +127,15 @@ export const Fader: React.FC<FaderProps> = ({ label, storeKey, min, max, unit, i
         if (trackRef.current) {
           anime({ targets: trackRef.current, borderColor: ['#ff0000', 'rgba(255,255,255,0.1)'], duration: 300, easing: 'easeOutExpo' });
         }
+        if (fillRef.current) {
+          anime({
+            targets: fillRef.current,
+            background: ['#ff0000', 'var(--accent)'],
+            boxShadow: ['0 0 30px #ff0000', '0 0 15px var(--accent-glow)'],
+            duration: 600,
+            easing: 'easeOutExpo'
+          });
+        }
       }
       percentage = getPercentage(actualNewStoreValue);
     } else {
