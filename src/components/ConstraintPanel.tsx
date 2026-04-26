@@ -1,9 +1,61 @@
 import React from 'react';
 import { Fader } from './Fader';
+import { useHardwareStore } from '../store/useHardwareStore';
 
 export const ConstraintPanel: React.FC = () => {
+  const vram = useHardwareStore(state => state.vram);
+  const ram = useHardwareStore(state => state.ram);
+  const bandwidth = useHardwareStore(state => state.bandwidth);
+  const storage = useHardwareStore(state => state.storage);
+
+  const calculateCost = () => {
+    const vramCost = vram * (bandwidth > 1000 ? 350 : 60);
+    const ramCost = ram * 3;
+    const storageCost = storage * 0.10;
+    return vramCost + ramCost + storageCost;
+  };
+
+  const getDeductibleFacts = () => {
+    const powerDraw = (vram * 3.5 + ram * 0.5) / 1000; // rough kW estimate
+    let formFactor = "Desktop Workstation";
+    let cooling = "Air Cooled";
+    
+    if (vram > 2000) {
+      formFactor = "Multi-Rack Supercluster";
+      cooling = "Immersion / Liquid Loop";
+    } else if (vram > 256) {
+      formFactor = "42U Server Rack";
+      cooling = "High-Velocity CRAC";
+    }
+
+    return { powerDraw: powerDraw.toFixed(1), formFactor, cooling };
+  };
+
+  const cost = calculateCost();
+  const facts = getDeductibleFacts();
+
   return (
-    <div className="glass-panel main-center">
+    <div className="glass-panel main-center" style={{ position: 'relative' }}>
+      <div style={{
+        position: 'absolute',
+        top: '24px',
+        right: '24px',
+        background: 'rgba(0, 0, 0, 0.4)',
+        border: '1px solid var(--trim)',
+        borderRadius: '8px',
+        padding: '16px',
+        textAlign: 'right',
+        minWidth: '220px'
+      }}>
+        <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '1px' }}>Estimated System Cost</div>
+        <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#22c55e', margin: '4px 0 12px 0' }}>
+          ${cost > 1000000 ? (cost/1000000).toFixed(1) + 'M' : cost > 1000 ? (cost/1000).toFixed(1) + 'k' : cost.toFixed(0)}
+        </div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--trim)', marginBottom: '4px' }}>Power Draw: <span style={{color: '#fff'}}>{facts.powerDraw} kW</span></div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--trim)', marginBottom: '4px' }}>Form Factor: <span style={{color: '#fff'}}>{facts.formFactor}</span></div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--trim)' }}>Cooling: <span style={{color: '#fff'}}>{facts.cooling}</span></div>
+      </div>
+
       <h1 style={{ marginBottom: '8px', fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-1px' }}>Can You LLM ?</h1>
       <h2 style={{ marginBottom: '32px', fontSize: '1rem', fontWeight: 400, color: 'var(--trim)' }}>Hardware Physics Constraints</h2>
       <Fader label="Accelerator VRAM" storeKey="vram" min={4} max={100000} unit="GB" />

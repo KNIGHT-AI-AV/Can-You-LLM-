@@ -24,36 +24,26 @@ body {
 * { box-sizing: border-box; }
 
 .glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--glass-border);
+  background: rgba(10, 0, 0, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 1px 0 rgba(212,175,55,0.1);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Custom Cursor */
-#custom-cursor {
-  position: fixed;
-  top: 0; left: 0;
-  width: 40px; height: 40px;
-  border: 1px solid var(--trim);
-  border-radius: 50%;
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
   pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: screen;
 }
-#custom-cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 8px; height: 8px;
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent-glow);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-}
+
+/* Custom Cursor styles handled inline in CustomCursor.tsx */
 
 .layout {
   display: flex;
@@ -106,13 +96,35 @@ body {
   background: var(--accent);
   box-shadow: 0 0 15px var(--accent-glow);
   border-radius: 3px; pointer-events: none;
+  transition: width 0.1s ease;
 }
+
+@keyframes rainbow-sweep {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.fader-fill.dragging-rainbow {
+  background: linear-gradient(90deg, #ff0000, #ffaa00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+  background-size: 200% 100%;
+  animation: rainbow-sweep 0.3s linear infinite;
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
 .fader-knob {
-  position: absolute; top: 50%; width: 16px; height: 16px;
-  background: var(--text-main);
-  border: 2px solid var(--trim);
-  border-radius: 50%; transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); pointer-events: none;
+  position: absolute; top: 50%; width: 24px; height: 24px;
+  background: transparent;
+  border-radius: 0; transform: translate(-50%, -50%);
+  border: none; box-shadow: none; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.fader-arrow {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Models */

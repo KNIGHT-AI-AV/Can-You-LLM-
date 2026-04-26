@@ -2,14 +2,18 @@ import React from 'react';
 import { CustomCursor } from './components/CustomCursor';
 import { ConstraintPanel } from './components/ConstraintPanel';
 import { ModelList } from './components/ModelList';
+import { ParticleBackground } from './components/ParticleBackground';
 
 const App: React.FC = () => {
   return (
-    <div className="layout">
+    <>
+      <ParticleBackground />
       <CustomCursor />
-      <ModelList />
-      <ConstraintPanel />
-    </div>
+      <div className="layout">
+        <ModelList />
+        <ConstraintPanel />
+      </div>
+    </>
   );
 };
 

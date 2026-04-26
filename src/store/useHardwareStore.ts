@@ -22,10 +22,12 @@ interface HardwareState {
   selectedModel: Model | null;
   models: Model[];
   showAllModels: boolean;
+  sortBy: 'intelligence' | 'vram' | 'parameters' | 'context';
   
   setHardwareValue: (key: keyof HardwareState, value: number) => void;
   selectModel: (model: Model | null) => void;
   toggleShowAllModels: () => void;
+  setSortBy: (sort: 'intelligence' | 'vram' | 'parameters' | 'context') => void;
 }
 
 export const useHardwareStore = create<HardwareState>((set) => ({
@@ -36,10 +38,11 @@ export const useHardwareStore = create<HardwareState>((set) => ({
   storageSpeed: 3000,
   selectedModel: null,
   models: modelsData as Model[],
-  showAllModels: false,
+  showAllModels: true,
+  sortBy: 'intelligence',
 
   setHardwareValue: (key, value) => set((state) => {
-    const updates: Partial<HardwareState> = { [key]: value };
+    const updates: Partial<HardwareState> = { [key]: value, showAllModels: false };
     
     if (state.selectedModel) {
       const requiredMem = calculateTotalMemory(
@@ -78,5 +81,7 @@ export const useHardwareStore = create<HardwareState>((set) => ({
       return { selectedModel: null, showAllModels: true };
     }
     return { showAllModels: !state.showAllModels };
-  })
+  }),
+
+  setSortBy: (sort) => set({ sortBy: sort })
 }));

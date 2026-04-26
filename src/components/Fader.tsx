@@ -23,6 +23,8 @@ export const Fader: React.FC<FaderProps> = ({ label, storeKey, min, max, unit, i
   const containerRef = useRef<HTMLDivElement>(null);
   
   const [isDragging, setIsDragging] = useState(false);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const lastPercentage = useRef(0);
 
   const getPercentage = (val: number) => {
     if (isLogarithmic) {
@@ -53,10 +55,25 @@ export const Fader: React.FC<FaderProps> = ({ label, storeKey, min, max, unit, i
     if (!trackRef.current) return;
     const rect = trackRef.current.getBoundingClientRect();
     let percentage = ((e.clientX - rect.left) / rect.width) * 100;
+    
+    if (percentage > lastPercentage.current) setDirection('right');
+    else if (percentage < lastPercentage.current) setDirection('left');
+    lastPercentage.current = percentage;
+
     percentage = Math.max(0, Math.min(100, percentage));
     
     let newValue = isLogarithmic ? linearToLog(percentage, min, max) : min + (max - min) * (percentage / 100);
+    
+    const currentStoreValue = useHardwareStore.getState()[storeKey];
     setValue(storeKey, newValue);
+    
+    const actualNewStoreValue = useHardwareStore.getState()[storeKey];
+    if (newValue < actualNewStoreValue && actualNewStoreValue === currentStoreValue) {
+      if (trackRef.current) {
+        anime({ targets: trackRef.current, borderColor: ['#ff0000', 'rgba(255,255,255,0.1)'], duration: 300, easing: 'easeOutExpo' });
+      }
+      percentage = getPercentage(actualNewStoreValue);
+    }
 
     if (knobRef.current && fillRef.current) {
       anime.set(knobRef.current, { left: `${percentage}%` });
@@ -100,8 +117,12 @@ export const Fader: React.FC<FaderProps> = ({ label, storeKey, min, max, unit, i
           handleDrag(e);
         }}
       >
-        <div className="fader-fill" ref={fillRef} />
-        <div className="fader-knob" ref={knobRef} />
+        <div className={`fader-fill ${isDragging ? 'dragging-rainbow' : ''}`} ref={fillRef} />
+        <div className="fader-knob" ref={knobRef}>
+          <svg className="fader-arrow" viewBox="0 0 24 24" style={{ transform: direction === 'left' ? 'rotate(-90deg)' : 'rotate(90deg)' }}>
+            <path d="M12 2L2 21l10-4 10 4L12 2z" strokeLinejoin="round" />
+          </svg>
+        </div>
       </div>
     </div>
   );
