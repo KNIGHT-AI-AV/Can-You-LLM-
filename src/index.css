@@ -1,13 +1,25 @@
+@font-face {
+  font-family: 'KnightAIAV';
+  src: url('/fonts/KnightAIAV.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg-color: #050505;
   --glass-bg: rgba(20, 0, 0, 0.4);
   --glass-border: rgba(212, 175, 55, 0.2); /* Gold trim */
-  --accent: #991b1b; /* Blood red */
-  --accent-glow: rgba(153, 27, 27, 0.5);
+  --accent: #ef4444; /* Blood red */
+  --accent-glow: rgba(239, 68, 68, 0.5);
   --trim: #d4af37; /* Metallic Gold */
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: 'KnightAIAV', system-ui, sans-serif;
 }
 
 body {
@@ -41,6 +53,15 @@ body {
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
   pointer-events: none;
+}
+
+.brand-group:hover .brand-title {
+  opacity: 1 !important;
+  color: #fecaca !important;
+  filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.9));
+}
+.brand-group:hover .brand-accent {
+  color: #f87171 !important;
 }
 
 /* Custom Cursor styles handled inline in CustomCursor.tsx */
