@@ -110,7 +110,7 @@ export const ModelList: React.FC = () => {
       </div>
 
       <div className="model-list" ref={listRef}>
-        {visibleModels.map(model => (
+        {visibleModels.map((model, index) => (
           <div 
             key={model.id} 
             className={`model-card model-card-anim ${selectedModel?.id === model.id ? 'active' : ''}`}
@@ -118,7 +118,10 @@ export const ModelList: React.FC = () => {
             onMouseEnter={onEnter}
             onMouseLeave={onLeave}
           >
-            <div className="model-title">{model.name}</div>
+            <div className="model-header" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className="model-rank" style={{ color: 'var(--accent)', fontWeight: 700 }}>#{index + 1}</span>
+              <div className="model-title">{model.name}</div>
+            </div>
             <div className="model-stats">
               <span>{model.parameters_billion}B Params</span>
               <span>Int: {model.intelligence_index}</span>

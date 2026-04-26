@@ -10,8 +10,12 @@ const App: React.FC = () => {
       <ParticleBackground />
       <CustomCursor />
       <div className="layout">
-        <ModelList />
-        <ConstraintPanel />
+        <div className="constraint-panel-wrapper">
+          <ConstraintPanel />
+        </div>
+        <div className="model-list-wrapper">
+          <ModelList />
+        </div>
       </div>
     </>
   );
