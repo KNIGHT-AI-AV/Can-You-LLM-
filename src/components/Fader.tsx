@@ -110,6 +110,7 @@ export const Fader: React.FC<FaderProps> = ({ label, storeKey, min, max, unit, i
           anime({
             targets: knobRef.current,
             translateX: ['-50%', '-60%', '-40%', '-55%', '-45%', '-50%'],
+            translateY: '-50%',
             duration: 400,
             easing: 'easeInOutSine'
           });
