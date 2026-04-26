@@ -21,9 +21,11 @@ interface HardwareState {
   storageSpeed: number; // in MB/s
   selectedModel: Model | null;
   models: Model[];
+  showAllModels: boolean;
   
   setHardwareValue: (key: keyof HardwareState, value: number) => void;
   selectModel: (model: Model | null) => void;
+  toggleShowAllModels: () => void;
 }
 
 export const useHardwareStore = create<HardwareState>((set) => ({
@@ -34,6 +36,7 @@ export const useHardwareStore = create<HardwareState>((set) => ({
   storageSpeed: 3000,
   selectedModel: null,
   models: modelsData as Model[],
+  showAllModels: false,
 
   setHardwareValue: (key, value) => set((state) => {
     const updates: Partial<HardwareState> = { [key]: value };
@@ -68,5 +71,12 @@ export const useHardwareStore = create<HardwareState>((set) => ({
       selectedModel: model,
       vram: Math.max(state.vram, minVram),
     };
+  }),
+
+  toggleShowAllModels: () => set((state) => {
+    if (state.selectedModel) {
+      return { selectedModel: null, showAllModels: true };
+    }
+    return { showAllModels: !state.showAllModels };
   })
 }));

@@ -8,6 +8,8 @@ export const ModelList: React.FC = () => {
   const models = useHardwareStore(state => state.models);
   const selectedModel = useHardwareStore(state => state.selectedModel);
   const selectModel = useHardwareStore(state => state.selectModel);
+  const showAllModels = useHardwareStore(state => state.showAllModels);
+  const toggleShowAllModels = useHardwareStore(state => state.toggleShowAllModels);
   
   const vram = useHardwareStore(state => state.vram);
 
@@ -15,6 +17,7 @@ export const ModelList: React.FC = () => {
 
   const visibleModels = models.filter(model => {
     if (selectedModel) return true;
+    if (showAllModels) return true;
     const requiredMem = calculateTotalMemory(model.parameters_billion, model.layers, model.hidden_dimension, 8192);
     return requiredMem <= vram;
   }).sort((a, b) => b.intelligence_index - a.intelligence_index);
@@ -41,9 +44,31 @@ export const ModelList: React.FC = () => {
 
   return (
     <div className="glass-panel sidebar" style={{ flex: '0 0 350px' }}>
-      <h2 style={{ marginBottom: '16px', fontSize: '1.2rem', fontWeight: 600, color: 'var(--text-main)' }}>
-        {selectedModel ? "Selected Model" : "Capable Models"}
-      </h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+        <h2 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--text-main)', margin: 0 }}>
+          {selectedModel ? "Selected Model" : "Capable Models"}
+        </h2>
+        <button 
+          onClick={toggleShowAllModels}
+          style={{
+            background: showAllModels ? 'var(--accent)' : 'rgba(255, 255, 255, 0.05)',
+            border: `1px solid ${showAllModels ? 'var(--accent)' : 'var(--trim)'}`,
+            color: showAllModels ? '#fff' : 'var(--trim)',
+            padding: '4px 10px',
+            borderRadius: '6px',
+            cursor: 'none',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            textTransform: 'uppercase',
+            letterSpacing: '0.5px',
+            transition: 'all 0.2s ease'
+          }}
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+        >
+          {showAllModels ? "Show Capable" : "Show All"}
+        </button>
+      </div>
       <div className="model-list" ref={listRef}>
         {visibleModels.map(model => (
           <div 
