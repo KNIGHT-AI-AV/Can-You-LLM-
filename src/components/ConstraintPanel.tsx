@@ -65,9 +65,10 @@ export const ConstraintPanel: React.FC = () => {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <Fader label="Accelerator VRAM" storeKey="vram" min={4} max={100000} unit="GB" />
-      <Fader label="Host RAM" storeKey="ram" min={8} max={250000} unit="GB" />
-      <Fader label="Memory Bandwidth" storeKey="bandwidth" min={50} max={500000} unit="GB/s" />
-      <Fader label="Storage Capacity" storeKey="storage" min={10} max={1000000} unit="GB" />
+        <Fader label="Host RAM" storeKey="ram" min={8} max={250000} unit="GB" />
+        <Fader label="Memory Bandwidth" storeKey="bandwidth" min={50} max={500000} unit="GB/s" />
+        <Fader label="Storage Capacity" storeKey="storage" min={10} max={1000000} unit="GB" />
+      </div>
     </div>
   );
 };
